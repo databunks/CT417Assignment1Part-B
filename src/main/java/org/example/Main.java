@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class Main
 {
+
     public static void main(String[] args)
     {
 
@@ -86,11 +87,54 @@ public class Main
         moduleGroupC.add(testModule2);
         moduleGroupC.add(testModule1);
 
-        // Assigning modules to lecturers
+
+        DateTime testCourse1StartDate = new DateTime(2020,1,1,0,0);
+        DateTime testCourse1EndDate = new DateTime(2024,1,1,0,0);
+
+        Course testCourse1 = new Course("Computer Science", moduleGroupA, studentGroupA, testCourse1StartDate, testCourse1EndDate);
 
 
-        //Course e = new Course()
+        DateTime testCourse2StartDate = new DateTime(2021,1,1,0,0);
+        DateTime testCourse2EndDate = new DateTime(2023,1,1,0,0);
+        Course testCourse2 = new Course("Geology", moduleGroupB, studentGroupB, testCourse2StartDate, testCourse2EndDate);
 
+        DateTime testCourse3StartDate = new DateTime(2023,1,1,0,0);
+        DateTime testCourse3EndDate = new DateTime(2026,1,1,0,0);
+        Course testCourse3 = new Course("Astrophysics", moduleGroupC, studentGroupC, testCourse3StartDate, testCourse3EndDate);
+
+
+        printDetails(testCourse1);
+        printDetails(testCourse2);
+        printDetails(testCourse3);
+    }
+
+    /**
+     * Print details of the course
+     * @param course
+     */
+    public static void printDetails(Course course)
+    {
+        System.out.println("Course Details: \n");
+        System.out.println(course.toString());
+
+        System.out.println("------------------");
+        System.out.println("Module Details: \n");
+
+        for (Module module : course.GetModules())
+        {
+            System.out.println(module.toString());
+            System.out.println("Assigned lecturer Details: \n");
+            System.out.println(module.GetLecturer().toString());
+
+        }
+
+        System.out.println("------------------");
+        System.out.println("Student Details: \n");
+
+        for (Student student : course.GetStudents())
+        {
+            System.out.println(student.toString());
+        }
 
     }
 }
